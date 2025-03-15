@@ -1,6 +1,7 @@
 /* Fullscreen Section Styling */
 .fullscreen {
-    height: 100vh; /* 100% of the viewport height */
+    height: 100vh;
+    /* 100% of the viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,14 +14,9 @@ body {
 
 /* Custom Landing Page Styles */
 #landing {
-    background-image: 
-        url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg'), 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Adding gradient over the image */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     position: relative;
     color: white;
+    text-shadow: 0 0 20px black;
 }
 
 /* Adding a pseudo-element to apply blur and grayscale to the background image */
@@ -34,8 +30,10 @@ body {
     background-image: url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg');
     background-size: cover;
     background-position: center;
-    filter: grayscale(100%) blur(10px); /* Apply grayscale and blur */
-    z-index: -1; /* Ensure this stays in the background */
+    filter: grayscale(60%) blur(8px);
+    /* Apply grayscale and blur */
+    z-index: -1;
+    /* Ensure this stays in the background */
 }
 
 
@@ -58,7 +56,8 @@ body {
 h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #ffcc00; /* Accent color for section headings */
+    color: #ffcc00;
+    /* Accent color for section headings */
 }
 
 /* Button Styling */
