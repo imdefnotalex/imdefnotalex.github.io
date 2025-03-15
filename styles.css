@@ -7,12 +7,26 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #121212; /* Dunkler Hintergrund für den Dark Mode */
+    color: white;
     overflow-x: hidden;
+    height: 100vh;
+    background-image: url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(5px); /* Unscharf stellen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Das Bild ist hinter dem Inhalt */
 }
 
+/* Dark Mode Styling */
 header {
-    background-color: #003366;
+    background-color: rgba(0, 51, 102, 0.9); /* Dunkler Header */
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -37,12 +51,18 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Hover-Effekt für Links */
 }
 
 .content-container {
     scroll-snap-type: y mandatory;
     height: 100vh;
     overflow-y: scroll;
+    scroll-behavior: smooth; /* Sanftes Scrollen */
 }
 
 .snap-section {
@@ -51,7 +71,7 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparenter schwarzer Hintergrund */
     flex-direction: column;
     scroll-snap-align: start;
 }
@@ -59,17 +79,22 @@ nav ul li a {
 section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #003366;
+    color: #ffcc00; /* Gelber Farbton für den Titel */
 }
 
 section p, section ul {
     font-size: 1.2rem;
     max-width: 800px;
     text-align: center;
+    color: #e0e0e0; /* Helle Schriftfarbe für den Text */
+}
+
+ul {
+    list-style-position: inside;
 }
 
 footer {
-    background-color: #003366;
+    background-color: rgba(0, 51, 102, 0.9); /* Dunkler Footer */
     color: white;
     text-align: center;
     padding: 10px 0;
