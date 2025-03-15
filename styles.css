@@ -1,19 +1,77 @@
-/* Hintergrundbild unscharf und dunkler */
+/* Fullscreen Section Styling */
+.fullscreen {
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Custom Landing Page Styles */
+#landing {
     background-image: url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: blur(5px); /* Unscharf stellen */
+    filter: blur(5px); /* Unblur the image */
+    position: relative;
+    color: white;
 }
 
-/* Alle Sections, die einen Textinhalt haben */
-section {
-    position: relative;
+#landing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
     z-index: 1;
 }
 
-/* Überlagerungseffekt für den Hintergrund */
-.bg-secondary, .bg-dark {
-    background-color: rgba(0, 0, 0, 0.7) !important;
+#landing h1 {
+    z-index: 2;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+#landing p {
+    z-index: 2;
+    font-size: 1.5rem;
+}
+
+#landing a {
+    z-index: 2;
+}
+
+/* Section Titles */
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffcc00; /* Accent color for section headings */
+}
+
+/* Button Styling */
+.btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Section Background Colors */
+.bg-secondary {
+    background-color: #333 !important;
+}
+
+.bg-dark {
+    background-color: #121212 !important;
+}
+
+.text-light {
+    color: #f0f0f0;
 }
