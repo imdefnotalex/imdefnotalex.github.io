@@ -27,10 +27,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg');
+    background-image: url('https://media.istockphoto.com/id/1834732329/de/vektor/rettungsring-und-rettungsschwimmer-rettungsschwimmer-ringretter-rettungsringe.jpg?s=612x612&w=0&k=20&c=pbXGn4gXnfhOsOJEEg6GeQvt1WIU_bvizNV-JnnI5O8=');
     background-size: cover;
     background-position: center;
-    filter: grayscale(60%) blur(8px);
+    filter: grayscale(0%) blur(0px);
     /* Apply grayscale and blur */
     z-index: -1;
     /* Ensure this stays in the background */
