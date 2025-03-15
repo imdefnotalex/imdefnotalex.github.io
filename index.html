@@ -5,55 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Turbowasserrettung</title>
+    
+    <!-- Bootstrap CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional: für benutzerdefinierte Schriftarten, Icons etc. -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Eigene CSS-Datei für spezifische Anpassungen -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>Turbowasserrettung</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">Über das Boot</a></li>
-                <li><a href="#tech">Technologie</a></li>
-                <li><a href="#features">Funktionen</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </nav>
+<body class="bg-dark text-light">
+
+    <!-- Header Section -->
+    <header class="container-fluid p-5 text-center">
+        <h1 class="display-3">Turbowasserrettung</h1>
+        <p class="lead">Autonome Rettungseinsätze mit KI und GPS-Technologie</p>
     </header>
 
-    <div class="content-container">
-        <section id="about" class="snap-section">
-            <h2>Über das Boot</h2>
-            <p>Unser innovatives Rettungsboot nutzt GPS und modernste KI-Technologie, um Ertrinkende in Notfällen schnell und effizient zu lokalisieren und zu retten. Das Boot ist autonom und arbeitet rund um die Uhr.</p>
-        </section>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Turbowasserrettung</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#about">Über das Boot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tech">Technologie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Funktionen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <section id="tech" class="snap-section">
-            <h2>Technologie</h2>
-            <p>Dank GPS und KI ist unser Boot in der Lage, Menschen im Wasser mit höchster Präzision zu erkennen. Mit der Kombination aus Echtzeit-Datenverarbeitung und präziser Navigation kann es blitzschnell in den Einsatz gehen.</p>
-        </section>
+    <!-- About Section -->
+    <section id="about" class="container py-5">
+        <h2 class="text-center mb-4">Über das Boot</h2>
+        <p class="lead">Unser innovatives Rettungsboot nutzt GPS und modernste KI-Technologie, um Ertrinkende in Notfällen schnell und effizient zu lokalisieren und zu retten. Das Boot ist autonom und arbeitet rund um die Uhr.</p>
+    </section>
 
-        <section id="features" class="snap-section">
-            <h2>Funktionen</h2>
-            <ul>
-                <li>Automatische Lokalisierung von Ertrinkenden mittels KI und GPS</li>
-                <li>Autonome Rettungseinsätze</li>
-                <li>Wasseranalyse zur Bestimmung von Strömungen und Wassertemperatur</li>
-                <li>Integration mit Rettungsdiensten für schnellste Hilfe</li>
-            </ul>
-        </section>
+    <!-- Technology Section -->
+    <section id="tech" class="bg-secondary text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Technologie</h2>
+            <p class="lead text-center">Dank GPS und KI ist unser Boot in der Lage, Menschen im Wasser mit höchster Präzision zu erkennen. Mit der Kombination aus Echtzeit-Datenverarbeitung und präziser Navigation kann es blitzschnell in den Einsatz gehen.</p>
+        </div>
+    </section>
 
-        <section id="contact" class="snap-section">
-            <h2>Kontakt</h2>
-            <p>Bei Fragen oder Interesse an unserer Technologie, kontaktiere uns bitte:</p>
-            <address>
+    <!-- Features Section -->
+    <section id="features" class="container py-5">
+        <h2 class="text-center mb-4">Funktionen</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Automatische Lokalisierung von Ertrinkenden mittels KI und GPS</li>
+            <li class="list-group-item">Autonome Rettungseinsätze</li>
+            <li class="list-group-item">Wasseranalyse zur Bestimmung von Strömungen und Wassertemperatur</li>
+            <li class="list-group-item">Integration mit Rettungsdiensten für schnellste Hilfe</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Kontakt</h2>
+            <p class="text-center">Bei Fragen oder Interesse an unserer Technologie, kontaktiere uns bitte:</p>
+            <address class="text-center">
                 <strong>Telefon:</strong> 01234 56789<br>
                 <strong>Email:</strong> info@turbowasserrettung.de<br>
                 <strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt
             </address>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <footer>
+    <!-- Footer Section -->
+    <footer class="bg-primary text-white text-center py-3">
         <p>&copy; 2025 Turbowasserrettung. Alle Rechte vorbehalten.</p>
     </footer>
+
+    <!-- Bootstrap JS (Optional, for responsive navbar, modals, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
