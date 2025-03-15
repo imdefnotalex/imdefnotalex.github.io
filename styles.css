@@ -17,7 +17,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    backdrop-filter: grayscale(50%) blur(5px); /* Grayscale and blur for black & white effect */
+    backdrop-filter: grayscale(80%) blur(25px); /* Grayscale and blur for black & white effect */
     position: relative;
     color: white;
 }
