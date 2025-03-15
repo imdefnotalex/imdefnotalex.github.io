@@ -13,15 +13,17 @@ body {
 
 /* Custom Landing Page Styles */
 #landing {
-    background-image: url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg');
+    background-image: 
+        url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg'), 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Adding gradient over the image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    backdrop-filter: grayscale(80%) blur(25px); /* Grayscale and blur for black & white effect */
     position: relative;
     color: white;
 }
 
+/* Adding a pseudo-element to apply blur and grayscale to the background image */
 #landing::before {
     content: '';
     position: absolute;
@@ -29,9 +31,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-    z-index: 1;
+    background-image: url('https://www.asb-lv-st.de/application/files/thumbnails/large/1615/1094/4688/11_Rettung_Wasser_1.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) blur(10px); /* Apply grayscale and blur */
+    z-index: -1; /* Ensure this stays in the background */
 }
+
 
 #landing h1 {
     z-index: 2;
