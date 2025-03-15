@@ -15,7 +15,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: blur(5px); /* Unscharf stellen */
+    backdrop-filter: blur(5px); /* Unscharf stellen */
     position: fixed;
     top: 0;
     left: 0;
