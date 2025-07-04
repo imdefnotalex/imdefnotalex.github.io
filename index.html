@@ -40,6 +40,7 @@
             position: relative;
             text-align: center;
             scroll-snap-align: start;
+            padding: 20px;
         }
 
         #landing {
@@ -128,18 +129,6 @@
             box-shadow: 0 10px 20px rgba(255, 136, 0, 0.4);
         }
 
-        .list-group-item {
-            background-color: #1e1e1e;
-            color: white;
-            border: none;
-            transition: transform 0.3s;
-        }
-
-        .list-group-item:hover {
-            transform: scale(1.02);
-            background-color: #333;
-        }
-
         footer {
             background: #222;
             scroll-snap-align: start;
@@ -201,10 +190,10 @@
             <li data-target="tech">Technologie</li>
             <li>Funktionen
                 <ul>
-                    <li data-target="features-item-0">Lokalisierung</li>
-                    <li data-target="features-item-1">Autonome Einsätze</li>
-                    <li data-target="features-item-2">Wasseranalyse</li>
-                    <li data-target="features-item-3">Integration</li>
+                    <li data-target="loc-tab">Lokalisierung</li>
+                    <li data-target="aut-tab">Autonome Einsätze</li>
+                    <li data-target="wat-tab">Wasseranalyse</li>
+                    <li data-target="int-tab">Integration</li>
                 </ul>
             </li>
             <li data-target="contact">Kontakt</li>
@@ -239,14 +228,47 @@
     <section id="features" class="fullscreen">
         <div class="container reveal">
             <h2>Funktionen</h2>
-            <ul class="list-group">
-                <li class="list-group-item" id="features-item-0">Automatische Lokalisierung von Ertrinkenden mittels KI
-                    und GPS</li>
-                <li class="list-group-item" id="features-item-1">Autonome Rettungseinsätze</li>
-                <li class="list-group-item" id="features-item-2">Wasseranalyse zur Bestimmung von Strömungen und
-                    Temperatur</li>
-                <li class="list-group-item" id="features-item-3">Integration mit Rettungsdiensten</li>
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs justify-content-center mb-4" id="featureTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="loc-tab" data-bs-toggle="tab" data-bs-target="#loc"
+                        type="button" role="tab">Lokalisierung</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aut-tab" data-bs-toggle="tab" data-bs-target="#aut" type="button"
+                        role="tab">Autonome Einsätze</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="wat-tab" data-bs-toggle="tab" data-bs-target="#wat" type="button"
+                        role="tab">Wasseranalyse</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="int-tab" data-bs-toggle="tab" data-bs-target="#int" type="button"
+                        role="tab">Integration</button>
+                </li>
             </ul>
+            <div class="tab-content" id="featureTabsContent">
+                <div class="tab-pane fade show active" id="loc" role="tabpanel">
+                    <h3>Automatische Lokalisierung</h3>
+                    <p>Unsere KI erkennt und lokalisiert Ertrinkende dank fortschrittlicher Bildverarbeitung und
+                        GPS-Koordinaten in Sekundenschnelle.</p>
+                </div>
+                <div class="tab-pane fade" id="aut" role="tabpanel">
+                    <h3>Autonome Einsätze</h3>
+                    <p>Das Boot startet eigenständig den Rettungseinsatz, plant die optimale Route und führt die Rettung
+                        ohne menschliches Eingreifen durch.</p>
+                </div>
+                <div class="tab-pane fade" id="wat" role="tabpanel">
+                    <h3>Wasseranalyse</h3>
+                    <p>Sensoren analysieren Strömung, Temperatur und Wasserqualität, um sichere und effektive Einsätze
+                        zu gewährleisten.</p>
+                </div>
+                <div class="tab-pane fade" id="int" role="tabpanel">
+                    <h3>Integration mit Rettungsdiensten</h3>
+                    <p>Echtzeit-Daten werden an Rettungsleitstellen übermittelt, um nahtlose Zusammenarbeit und
+                        schnellste Hilfe zu garantieren.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -272,9 +294,7 @@
         // Scroll reveal
         const revealElements = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.3 });
         revealElements.forEach(el => observer.observe(el));
 
@@ -283,22 +303,10 @@
         const sidebarItems = document.querySelectorAll('#sidebar li[data-target]');
         window.addEventListener('scroll', () => {
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 50) current = section.getAttribute('id');
-            });
-            sidebarItems.forEach(li => {
-                li.classList.remove('active');
-                if (li.dataset.target === current) li.classList.add('active');
-            });
+            sections.forEach(section => { if (pageYOffset >= section.offsetTop - 50) current = section.id; });
+            sidebarItems.forEach(li => { li.classList.toggle('active', li.dataset.target === current); });
         });
-
-        // Click sidebar to scroll
-        sidebarItems.forEach(li => {
-            li.addEventListener('click', () => {
-                document.getElementById(li.dataset.target).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        sidebarItems.forEach(li => li.addEventListener('click', () => document.getElementById(li.dataset.target).scrollIntoView({ behavior: 'smooth' })));
     </script>
 </body>
 
