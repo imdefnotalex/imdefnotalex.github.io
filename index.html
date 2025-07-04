@@ -33,28 +33,35 @@
         }
 
         .fullscreen {
-            height: 100vh;
+            height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
             text-align: center;
             scroll-snap-align: start;
-            padding: 20px;
+            padding: 0;
         }
+
+        h1,
+        h2,
+        p {
+            margin: 0;
+        }
+
 
         #landing {
             background: url('https://media.istockphoto.com/id/1834732329/de/vektor/rettungsring-und-rettungsschwimmer-rettungsschwimmer-ringretter-rettungsringe.jpg') center/cover;
             color: white;
         }
 
-        #landing::before {
+        /* #landing::before {
             content: '';
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.6);
             z-index: 0;
-        }
+        } */
 
         #landing h1,
         #landing p,
@@ -120,7 +127,7 @@
 
         footer {
             background: #222;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
         }
 
         #sidebar {
