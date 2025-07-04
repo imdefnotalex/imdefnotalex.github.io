@@ -8,22 +8,23 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
+        /* 1. Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             --color-background: #0f1f2e;
             --color-surface: #121825;
-            /* abgesenkt für dunklere Flächen */
             --color-primary: #00565f;
-            /* etwas dunkleres Petrol */
             --color-secondary: #5a9d91;
-            /* abgedunkeltes Mint */
             --color-accent: #e07a5f;
             --color-warning: #d65a3f;
             --text-primary: #ececec;
@@ -39,8 +40,6 @@
             font-family: 'Open Sans', sans-serif;
             background-color: var(--color-background);
             color: var(--text-primary);
-            margin: 0;
-            padding: 0;
             overflow-x: hidden;
         }
 
@@ -51,8 +50,6 @@
             align-items: center;
             text-align: center;
             scroll-snap-align: start;
-            padding: 0;
-            /* kein vertikales Padding mehr */
             background-color: var(--color-surface);
         }
 
@@ -62,7 +59,7 @@
             margin: 0;
         }
 
-        /* Landing mit stärkerem Overlay */
+        /* Landing */
         #landing {
             background: url('https://media.istockphoto.com/id/1834732329/de/vektor/rettungsring-und-rettungsschwimmer-rettungsschwimmer-ringretter-rettungsringe.jpg') center/cover;
             position: relative;
@@ -74,7 +71,6 @@
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.7);
-            /* dunkleres Overlay */
             z-index: 0;
         }
 
@@ -132,6 +128,7 @@
             color: var(--text-secondary);
         }
 
+        /* Button */
         .btn-primary {
             font-size: 1.2rem;
             padding: 15px 30px;
@@ -147,14 +144,23 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
+        /* Technologie-Sektion */
         #tech {
             background-color: var(--color-primary) !important;
         }
 
+        /* Kontakt-Sektion dunkler + helle Schrift */
         #contact {
-            background-color: var(--color-secondary) !important;
+            background-color: #0b131a !important;
+            color: var(--text-primary);
         }
 
+        #contact .lead,
+        #contact address {
+            color: var(--text-primary);
+        }
+
+        /* Tabs */
         .nav-tabs .nav-link {
             color: var(--text-secondary);
             border: none;
@@ -166,35 +172,37 @@
             border-radius: .5rem;
         }
 
+        /* 2. Footer immer sichtbar */
         footer {
+            position: sticky;
+            bottom: 0;
             background-color: var(--color-surface);
             color: var(--text-secondary);
-            padding: 0.5rem 0;
+            padding: .5rem 0;
+            scroll-snap-align: none;
+            z-index: 10;
         }
 
-        /* Sidebar: immer oben, sichtbar */
+        /* 3. Sidebar vertikal zentriert + immer oben */
         #sidebar {
             display: none;
         }
 
-        @media(min-width:992px) {
+        @media (min-width: 992px) {
             #sidebar {
                 display: block;
                 position: fixed;
-                top: 20px;
-                /* Abstand zum oberen Rand */
+                top: 50%;
                 left: 20px;
+                transform: translateY(-50%);
                 background: rgba(21, 42, 58, 0.9);
                 padding: 20px;
                 border-radius: 8px;
                 z-index: 9999;
-                /* immer im Vordergrund */
             }
 
             #sidebar ul {
                 list-style: none;
-                margin: 0;
-                padding: 0;
             }
 
             #sidebar li {
@@ -216,7 +224,6 @@
 
             body {
                 padding-left: 260px;
-                /* Platz für die Sidebar */
             }
         }
     </style>
@@ -313,7 +320,7 @@
     <section id="contact" class="fullscreen">
         <div class="container reveal">
             <h2>Kontakt</h2>
-            <p>Bei Fragen oder Interesse an unserer Technologie:</p>
+            <p class="lead">Bei Fragen oder Interesse an unserer Technologie:</p>
             <address>
                 <strong>Telefon:</strong> 01234 56789<br>
                 <strong>Email:</strong> info@turbowasserrettung.de<br>
@@ -326,15 +333,17 @@
         <p>&copy; 2025 Turbowasserrettung. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS & Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(e => e.isIntersecting && e.target.classList.add('active'));
         }, { threshold: 0.3 });
         revealElements.forEach(el => observer.observe(el));
 
+        // Sidebar Interaction
         const sidebarItems = document.querySelectorAll('#sidebar li[data-target]');
         const sections = document.querySelectorAll('section');
         function updateSidebar(target) {
