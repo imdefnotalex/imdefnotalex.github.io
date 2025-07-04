@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Turbowasserrettung</title>
 
     <!-- Bootstrap CSS -->
@@ -13,31 +12,22 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <!-- Animate.css for entry animations -->
+    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <!-- Custom CSS -->
     <style>
         :root {
-            /* Grundfarben */
             --color-background: #0f1f2e;
-            /* tiefes Mitternachtsblau */
-            --color-surface: #152a3a;
-            /* etwas helleres Blau für Sektionen */
-            --color-primary: #006d77;
-            /* kräftiges Petrol */
-            --color-secondary: #83c5be;
-            /* weiches Mint */
-            --color-highlight: #edf6f9;
-            /* sehr helle Akzente */
-            --color-accent: #f4a261;
-            /* warmes Korall-Orange */
-            --color-warning: #e76f51;
-            /* dunkleres Korall-Orange */
-            --text-primary: #f0f0f0;
-            /* fast Weiß */
-            --text-secondary: #cad2c5;
-            /* helles Grau-Grün */
+            --color-surface: #121825;
+            /* abgesenkt für dunklere Flächen */
+            --color-primary: #00565f;
+            /* etwas dunkleres Petrol */
+            --color-secondary: #5a9d91;
+            /* abgedunkeltes Mint */
+            --color-accent: #e07a5f;
+            --color-warning: #d65a3f;
+            --text-primary: #ececec;
+            --text-secondary: #a8b2ad;
         }
 
         html {
@@ -49,9 +39,9 @@
             font-family: 'Open Sans', sans-serif;
             background-color: var(--color-background);
             color: var(--text-primary);
-            overflow-x: hidden;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         .fullscreen {
@@ -59,10 +49,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
             text-align: center;
             scroll-snap-align: start;
             padding: 0;
+            /* kein vertikales Padding mehr */
             background-color: var(--color-surface);
         }
 
@@ -72,7 +62,7 @@
             margin: 0;
         }
 
-        /* Landing-Sektion mit dunklem Overlay für Kontrast */
+        /* Landing mit stärkerem Overlay */
         #landing {
             background: url('https://media.istockphoto.com/id/1834732329/de/vektor/rettungsring-und-rettungsschwimmer-rettungsschwimmer-ringretter-rettungsringe.jpg') center/cover;
             position: relative;
@@ -83,7 +73,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
+            /* dunkleres Overlay */
             z-index: 0;
         }
 
@@ -92,7 +83,6 @@
             z-index: 1;
         }
 
-        /* Typing-Effect */
         .typewriter-text {
             overflow: hidden;
             white-space: nowrap;
@@ -127,7 +117,6 @@
             transform: translateY(0);
         }
 
-        /* Überschriften */
         h1,
         h2,
         h3 {
@@ -139,12 +128,10 @@
             font-weight: 600;
         }
 
-        /* Fließtext */
         p.lead {
             color: var(--text-secondary);
         }
 
-        /* Buttons */
         .btn-primary {
             font-size: 1.2rem;
             padding: 15px 30px;
@@ -160,7 +147,6 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
-        /* Sektionen mit Akzent-Hintergrund */
         #tech {
             background-color: var(--color-primary) !important;
         }
@@ -169,7 +155,6 @@
             background-color: var(--color-secondary) !important;
         }
 
-        /* Tab-Navigation */
         .nav-tabs .nav-link {
             color: var(--text-secondary);
             border: none;
@@ -181,14 +166,13 @@
             border-radius: .5rem;
         }
 
-        /* Footer */
         footer {
             background-color: var(--color-surface);
             color: var(--text-secondary);
             padding: 0.5rem 0;
         }
 
-        /* Sidebar */
+        /* Sidebar: immer oben, sichtbar */
         #sidebar {
             display: none;
         }
@@ -197,18 +181,20 @@
             #sidebar {
                 display: block;
                 position: fixed;
-                top: 50%;
+                top: 20px;
+                /* Abstand zum oberen Rand */
                 left: 20px;
-                transform: translateY(-50%);
-                background: rgba(21, 42, 58, 0.8);
+                background: rgba(21, 42, 58, 0.9);
                 padding: 20px;
                 border-radius: 8px;
+                z-index: 9999;
+                /* immer im Vordergrund */
             }
 
             #sidebar ul {
                 list-style: none;
-                padding: 0;
                 margin: 0;
+                padding: 0;
             }
 
             #sidebar li {
@@ -229,7 +215,8 @@
             }
 
             body {
-                padding-left: 200px;
+                padding-left: 260px;
+                /* Platz für die Sidebar */
             }
         }
     </style>
@@ -335,21 +322,19 @@
         </div>
     </section>
 
-    <footer class="text-center text-white">
+    <footer class="text-center">
         <p>&copy; 2025 Turbowasserrettung. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Scroll reveal
         const revealElements = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(e => e.isIntersecting && e.target.classList.add('active'));
         }, { threshold: 0.3 });
         revealElements.forEach(el => observer.observe(el));
 
-        // Sidebar interaction
         const sidebarItems = document.querySelectorAll('#sidebar li[data-target]');
         const sections = document.querySelectorAll('section');
         function updateSidebar(target) {
@@ -368,13 +353,9 @@
             if (trg === 'features') document.querySelector('#loc-tab').click();
             updateSidebar(trg);
         }));
-
-        // Update sidebar when tab changes
-        const tabButtons = document.querySelectorAll('#featureTabs button');
-        tabButtons.forEach(btn => btn.addEventListener('shown.bs.tab', e => {
-            const id = e.target.getAttribute('data-bs-target').substring(1);
-            updateSidebar(id);
-        }));
+        document.querySelectorAll('#featureTabs button').forEach(btn =>
+            btn.addEventListener('shown.bs.tab', e => updateSidebar(e.target.getAttribute('data-bs-target').substring(1)))
+        );
     </script>
 </body>
 
