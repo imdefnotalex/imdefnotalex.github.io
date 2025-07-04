@@ -227,6 +227,39 @@
             }
         }
     </style>
+
+    <style>
+        #landing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        #landing h1 {
+            font-size: 8vw;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        #landing p {
+            font-size: 4vw;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            #landing h1 {
+                font-size: 4rem;
+            }
+
+            #landing p {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -249,8 +282,12 @@
 
     <section id="landing" class="fullscreen">
         <div>
-            <h1 class="display-3 animate__animated animate__fadeInDown">Turbowasserrettung</h1>
-            <p class="lead typewriter-text">Autonome Rettungseinsätze mit KI und GPS-Technologie</p>
+            <h1 class="display-3 animate__animated animate__fadeInDown">
+                Turbowasserrettung
+            </h1>
+            <p class="lead typewriter-text">
+                Autonome Rettungseinsätze mit KI und GPS-Technologie
+            </p>
             <a href="#about" class="btn btn-primary btn-lg mt-4">Mehr erfahren</a>
         </div>
     </section>
