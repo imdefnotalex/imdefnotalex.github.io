@@ -44,19 +44,14 @@
         }
 
         #landing {
-            background-image: url('https://media.istockphoto.com/id/1834732329/de/vektor/rettungsring-und-rettungsschwimmer-rettungsschwimmer-ringretter-rettungsringe.jpg?s=612x612&w=0&k=20&c=pbXGn4gXnfhOsOJEEg6GeQvt1WIU_bvizNV-JnnI5O8=');
-            background-size: cover;
-            background-position: center;
+            background: url('https://media.istockphoto.com/id/1834732329/de/vektor/rettungsring-und-rettungsschwimmer-rettungsschwimmer-ringretter-rettungsringe.jpg') center/cover;
             color: white;
         }
 
         #landing::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.6);
             z-index: 0;
         }
@@ -77,23 +72,17 @@
 
         @keyframes typing {
             from {
-                width: 0;
+                width: 0
             }
 
             to {
-                width: 100%;
+                width: 100%
             }
         }
 
         @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent;
-            }
-
             50% {
-                border-color: white;
+                border-color: transparent
             }
         }
 
@@ -121,7 +110,7 @@
             text-transform: uppercase;
             background: linear-gradient(135deg, #ffcc00, #ff8800);
             border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform .3s ease, box-shadow .3s ease;
         }
 
         .btn-primary:hover {
@@ -134,12 +123,11 @@
             scroll-snap-align: start;
         }
 
-        /* Sidebar Table of Contents */
         #sidebar {
             display: none;
         }
 
-        @media (min-width: 992px) {
+        @media(min-width:992px) {
             #sidebar {
                 display: block;
                 position: fixed;
@@ -161,7 +149,7 @@
                 margin-bottom: 10px;
                 cursor: pointer;
                 color: #ccc;
-                transition: color 0.3s;
+                transition: color .3s;
             }
 
             #sidebar li.active {
@@ -182,25 +170,23 @@
 </head>
 
 <body>
-    <!-- Sidebar TOC -->
     <nav id="sidebar">
         <ul>
             <li data-target="landing" class="active">Landing</li>
             <li data-target="about">Über das Boot</li>
             <li data-target="tech">Technologie</li>
-            <li>Funktionen
+            <li data-target="features">Funktionen
                 <ul>
-                    <li data-target="loc-tab">Lokalisierung</li>
-                    <li data-target="aut-tab">Autonome Einsätze</li>
-                    <li data-target="wat-tab">Wasseranalyse</li>
-                    <li data-target="int-tab">Integration</li>
+                    <li data-target="loc">Lokalisierung</li>
+                    <li data-target="aut">Autonome Einsätze</li>
+                    <li data-target="wat">Wasseranalyse</li>
+                    <li data-target="int">Integration</li>
                 </ul>
             </li>
             <li data-target="contact">Kontakt</li>
         </ul>
     </nav>
 
-    <!-- Sections -->
     <section id="landing" class="fullscreen">
         <div>
             <h1 class="display-3 animate__animated animate__fadeInDown">Turbowasserrettung</h1>
@@ -228,24 +214,15 @@
     <section id="features" class="fullscreen">
         <div class="container reveal">
             <h2>Funktionen</h2>
-            <!-- Nav Tabs -->
             <ul class="nav nav-tabs justify-content-center mb-4" id="featureTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="loc-tab" data-bs-toggle="tab" data-bs-target="#loc"
-                        type="button" role="tab">Lokalisierung</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="aut-tab" data-bs-toggle="tab" data-bs-target="#aut" type="button"
-                        role="tab">Autonome Einsätze</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="wat-tab" data-bs-toggle="tab" data-bs-target="#wat" type="button"
-                        role="tab">Wasseranalyse</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="int-tab" data-bs-toggle="tab" data-bs-target="#int" type="button"
-                        role="tab">Integration</button>
-                </li>
+                <li class="nav-item" role="presentation"><button class="nav-link active" id="loc-tab"
+                        data-bs-toggle="tab" data-bs-target="#loc" type="button" role="tab">Lokalisierung</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="aut-tab" data-bs-toggle="tab"
+                        data-bs-target="#aut" type="button" role="tab">Autonome Einsätze</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="wat-tab" data-bs-toggle="tab"
+                        data-bs-target="#wat" type="button" role="tab">Wasseranalyse</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" id="int-tab" data-bs-toggle="tab"
+                        data-bs-target="#int" type="button" role="tab">Integration</button></li>
             </ul>
             <div class="tab-content" id="featureTabsContent">
                 <div class="tab-pane fade show active" id="loc" role="tabpanel">
@@ -276,11 +253,8 @@
         <div class="container reveal">
             <h2>Kontakt</h2>
             <p>Bei Fragen oder Interesse an unserer Technologie:</p>
-            <address>
-                <strong>Telefon:</strong> 01234 56789<br>
-                <strong>Email:</strong> info@turbowasserrettung.de<br>
-                <strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt
-            </address>
+            <address><strong>Telefon:</strong> 01234 56789<br><strong>Email:</strong>
+                info@turbowasserrettung.de<br><strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt</address>
         </div>
     </section>
 
@@ -293,20 +267,33 @@
     <script>
         // Scroll reveal
         const revealElements = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.3 });
+        const observer = new IntersectionObserver(entries => { entries.forEach(e => e.isIntersecting && e.target.classList.add('active')); }, { threshold: 0.3 });
         revealElements.forEach(el => observer.observe(el));
 
-        // Sidebar highlight
-        const sections = document.querySelectorAll('section');
+        // Sidebar interaction
         const sidebarItems = document.querySelectorAll('#sidebar li[data-target]');
+        const sections = document.querySelectorAll('section');
+        function updateSidebar(target) {
+            sidebarItems.forEach(li => li.classList.toggle('active', li.dataset.target === target));
+        }
         window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => { if (pageYOffset >= section.offsetTop - 50) current = section.id; });
-            sidebarItems.forEach(li => { li.classList.toggle('active', li.dataset.target === current); });
+            let current = 'landing';
+            sections.forEach(sec => { if (pageYOffset >= sec.offsetTop - 50) current = sec.id; });
+            updateSidebar(current);
         });
-        sidebarItems.forEach(li => li.addEventListener('click', () => document.getElementById(li.dataset.target).scrollIntoView({ behavior: 'smooth' })));
+        sidebarItems.forEach(li => li.addEventListener('click', () => {
+            const trg = li.dataset.target;
+            document.getElementById(trg).scrollIntoView({ behavior: 'smooth' });
+            if (trg === 'features') document.querySelector('#loc-tab').click();
+            updateSidebar(trg);
+        }));
+
+        // Update sidebar when tab changes
+        const tabButtons = document.querySelectorAll('#featureTabs button');
+        tabButtons.forEach(btn => btn.addEventListener('shown.bs.tab', e => {
+            const id = e.target.getAttribute('data-bs-target').substring(1);
+            updateSidebar(id);
+        }));
     </script>
 </body>
 
