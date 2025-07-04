@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* Fullscreen Section Styling */
 .fullscreen {
     height: 100vh;
